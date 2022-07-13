@@ -8,6 +8,7 @@ const ytdl = require('ytdl-core');
 const ytsr = require('ytsr');
 const AWS = require('aws-sdk');
 var ffmpeg = require('fluent-ffmpeg');
+var morgan = require('morgan');
 
 var bodyParser = require('body-parser');
 
@@ -15,6 +16,7 @@ app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+app.use(morgan('combined'));
 app.use('/public', express.static('public'));
 
 app.get('/', (req, res) =>  {
@@ -39,7 +41,7 @@ app.get('/load-test', (req, res) => {
 });
 
 app.post('/youtube', (req, res) =>  {
-	console.log(req.headers);
+//	console.log(req.headers);
 	const msg = req.body.text;
 	console.log(`Incoming message: ${msg}`);
 
