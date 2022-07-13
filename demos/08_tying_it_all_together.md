@@ -12,15 +12,6 @@
 2. Your instance should have a public ip4v address. Connect to your instance via SSH by click on **Connect** button in the instance page, then **SSH Client**, follow the instructions there.
 
    
-### Create Telegram bot
-
-1. From your Telegram app, send the following message to **BotFather**: `/newbot`.
-2. Follow the instructions to get a **token** to access the HTTP API.  
-   ![telegramBot](../.img/telegramToken.jpg)
-
-
-At this point, you should have your own bot, as well as the API token.
-
 ### Deploy the app
 
 1. Within the terminal session of your instance, install app dependencies:
@@ -35,12 +26,7 @@ At this point, you should have your own bot, as well as the API token.
 
 3. Then install NodeJs dependencies by
    ```shell
-   cd AwsJune22/youtubeTelegramBot
+   cd AwsJune22/youtubeBot
    npm install
-   ```
-4. Create `.env` file containing the following environment variables. Change `<your-token>` to your telegram token and `<your-bucket-name>` to your S3 bucket name.
-   ```shell
-   echo "TELEGRAM_API_TOKEN=<your-token>" >> .env
-   echo "BUCKET_NAME=<your-bucket-name>" >> .env
    ```
 5. Run the app by `npm start`, and test it. 
