@@ -1,4 +1,4 @@
-# Load Balancing and Auth Scaling
+# Load Balancing
 
 ## Create Application Load Balancer
 
@@ -119,3 +119,20 @@ IAM securely encrypts your private keys and stores the encrypted version in IAM 
 
 8. Test your load balancer over HTTPS.
 
+### Working with sticky sessions
+
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**\.
+
+1. Choose the name of the target group to open its details page\.
+
+1. On the **Group details** tab, in the **Attributes** section, choose **Edit**\.
+
+1. On the **Edit attributes** page, do the following:
+
+   1. Select **Stickiness**\.
+
+   1. For **Stickiness type**, select **Load balancer generated cookie**\.
+
+   1. For **Stickiness duration**, specify a value between 1 second and 7 days\.
+
+   1. Choose **Save changes**\.

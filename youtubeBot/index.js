@@ -21,6 +21,7 @@ app.use(morgan('combined'));
 app.use('/public', express.static('public'));
 
 app.get('/', (req, res) =>  {
+  // console.log(req.headers);
   res.sendFile(__dirname + '/');
 });
 
@@ -42,7 +43,6 @@ app.get('/load-test', (req, res) => {
 });
 
 app.post('/youtube', (req, res) =>  {
-//	console.log(req.headers);
 	const msg = req.body.text;
 	console.log(`Incoming message: ${msg}`);
 
