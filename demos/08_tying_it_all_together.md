@@ -29,4 +29,8 @@
    cd AwsJune22/youtubeBot
    npm install
    ```
+4. Create `.env` file containing the following environment variables. Change `<your-bucket-name>` to your S3 bucket name.
+   ```shell
+   echo "BUCKET_NAME=<your-bucket-name>" >> .env
+   ```
 5. Run the app by `npm start`, and test it. 

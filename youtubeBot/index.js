@@ -9,6 +9,7 @@ const ytsr = require('ytsr');
 const AWS = require('aws-sdk');
 var ffmpeg = require('fluent-ffmpeg');
 var morgan = require('morgan');
+require('dotenv').config();
 
 var bodyParser = require('body-parser');
 
