@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 WORKDIR /app
-COPY package.json package.josn
-COPY worker.js worker.js
+COPY package.json .
+COPY worker.js .
+RUN sudo apt-get update -y  && sudo apt-get install nodejs npm ffmpeg -y
 RUN npm install
-CMD ['node', 'worker.js']
+CMD ["node", "worker.js"]
