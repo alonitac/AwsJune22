@@ -96,7 +96,13 @@ async function calcMsgsInQueue() {
                         const asgSize = data.AutoScalingGroups[0].DesiredCapacity
                         console.log(`autoscaling group size ${asgSize}`);
                         console.log(`Messages in queue: ${msgsInQueue}`);
-                        const backlogPerInstance = asgSize === 0 ? 99 : parseInt(msgsInQueue) / asgSize
+                        const backlogPerInstance = parseInt(msgsInQueue) === 0
+                                                   ? 0
+                                                   : asgSize === 0
+                                                        ? 11
+                                                        : parseInt(msgsInQueue) / asgSize;
+                        console.log(`backlog per instance ${backlogPerInstance}`);
+
                         const params = {
                           MetricData: [
                             {
