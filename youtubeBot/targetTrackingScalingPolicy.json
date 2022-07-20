@@ -1,0 +1,9 @@
+{
+  "TargetValue": 10,
+  "CustomizedMetricSpecification":{
+    "MetricName":"<queue-name>-backlog-per-instance",
+    "Namespace":"YoutubeBot",
+    "Statistic":"Average",
+    "Unit":"None"
+  }
+}
