@@ -38,7 +38,8 @@ The metric can be called `BacklogPerInstance`, as it represents the number of me
    5. For **Resource tags**, specify tags by providing key and value combinations\. 
 
 6. Configure advanced settings as follows:
-   1. User data should contains the following Bash script:
+   1. Under **IAM instance profile**, choose a IAM role with the following permissions: `AmazonSQSFullAccess`, `AutoScalingFullAccess`, `AmazonS3FullAccess`, `CloudWatchFullAccess` (create one if needed).
+   2. User data should contains the following Bash script: <a name="envfile"></a>
       ```shell
       cd AwsJune22/youtubeBot
       echo """QUEUE_URL=<sqs-queue-url>
@@ -114,6 +115,11 @@ aws autoscaling put-scaling-policy --policy-name sqs-target-tracking-scaling-pol
 
 ## Deploy the service
 
-1. Run you Bot service on a single EC2 instance.
+1. Run your Bot service on a single EC2 instance, as follows:
+   1. Launch an EC2 instance (Ubuntu or another OS to your choice).
+   2. Connect to the instance via SSH, install app dependencies as in [here](08_tying_it_all_together.md)
+   3. In the source code repository dir, checkout branch `microservices` by `git checkout microservices`
+   4. Create the `.env` file as you did in [step 6 above](#envfile).
+   5. Run the app by `npm start`.
 2. Communicate with the service by sending requests.
-3. Watch the autoscaling group in a scale out and scale in actions.
+3. In CloudWatch alarm dashboard, watch the autoscaling group in a scale out and scale in actions.
