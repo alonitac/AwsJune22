@@ -128,7 +128,7 @@ It is very important to test all the alarms you set, in production environment i
 20. Install PostgreSQL tooling package by:
 ```
 sudo apt-get update -y
-sudo apt-get install postgresql-server postgresql-contrib -y
+sudo apt install -y postgresql postgresql-contrib postgresql-client
 ```
 21. Create a database by connect to the database:
 ```shell
