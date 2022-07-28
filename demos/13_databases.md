@@ -283,7 +283,7 @@ The policy has four statements that allow your role to do the following:
 
    2. For **Runtime**, confirm that **Node\.js 16\.x** is selected\. 
 
-   3. For **Permissions** use your created role or TBD alternatively.
+   3. For **Permissions** use your created role or `arn:aws:iam::964849360084:role/LambdaDynamoEvents` alternatively.
 
 4. Choose **Create function**\.
 5. Enter your function, copy the content of `publishNewSong.js` and paste it in the **Code source**. Change `<TOPIC-ARN>` to your SNS topic ARN you created in the previous exercise.
