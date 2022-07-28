@@ -136,6 +136,8 @@ psql postgres://<db-username>:<db-password>@<db-endpoint>:5432
 ```
 and `CREATE DATABASE <postgres-internal-db-name>;`.
 
+Run the following steps from a Linux terminal (not from postgres shell): 
+
 23. Initialize the benchmark settings
 ```shell
 PGPASSWORD=<password> pgbench -i -U postgres -h <db-url> <postgres-internal-db-name>
