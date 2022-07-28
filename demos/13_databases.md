@@ -135,14 +135,17 @@ sudo apt-get install postgresql-server postgresql-contrib -y
 psql postgres://<db-username>:<db-password>@<db-endpoint>:5432
 ```
 and `CREATE DATABASE <postgres-internal-db-name>;`.
+
 23. Initialize the benchmark settings
 ```shell
 PGPASSWORD=<password> pgbench -i -U postgres -h <db-url> <postgres-internal-db-name>
 ```
+
 24. Perform a load test of your DB instance and watch the alarm in action
 ```shell
 PGPASSWORD=<password> pgbench -t 10000 -j 10 -c 10 -U postgres -h <db-url> <postgres-internal-db-name>
 ```
+
 While `<password>` is you db password. `<db-url>` is you RDS database url and `<postgres-internal-db-name>` is an existed table.
 
 For more information on the `pgbench` command, read [here](https://www.postgresql.org/docs/current/pgbench.html).
