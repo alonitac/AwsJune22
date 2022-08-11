@@ -79,10 +79,9 @@ In an event that triggers our DR plan, we manually or automatically switch the D
 ### Create Health checks for your app
 
 1. Open the Route 53 console at [https://console\.aws\.amazon\.com/route53/](https://console.aws.amazon.com/route53/)\.
-2. In the navigation pane, choose **Health Checks**\. 
-3. Choose **Create Health Check**\. 
-4. Enter the applicable values for the two EC2 instances, use the machine public IP address as the endpoint\.
-6. Choose **Create Health Check**\.
+2. In the navigation pane, choose **Health Checks**\.
+3. Enter the applicable values for the two EC2 instances, use the machine public IP address as the endpoint\.
+4. Choose **Create Health Check**\.
 
 ### Create a (sub)domain with failover records 
 
