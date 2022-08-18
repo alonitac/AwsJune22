@@ -52,8 +52,8 @@ The current configuration includes a number of hard-coded values. Terraform vari
 2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `dev` variable block will default to its default value ("dev") unless you declare a different value.
    ```text
     tags = {
-   -    Name = "ExampleAppServerInstance"
-   +    Name = "alonit-instance2-${var.env}"
+   -    Name = "<instance-name>"
+   +    Name = "<instance-name>-${var.env}"
     }
    ```
    

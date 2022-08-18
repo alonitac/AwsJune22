@@ -1,0 +1,11 @@
+# deploy by `aws cloudformation create-stack --stack-name ec2-example --template-body file://simple-ec2.yaml`
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Deploy an EC2 with CloudFormation
+
+Resources:
+  WebAppInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-013126576e995a769 # ImageID valid only in us-east-1 region
+      InstanceType: t3.micro

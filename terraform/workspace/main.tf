@@ -21,6 +21,7 @@ terraform {
 */
 provider "aws" {
   region  = "<aws-region>"
+  profile = "<aws-course-profile>"
 }
 
 
