@@ -46,10 +46,10 @@ The current configuration includes a number of hard-coded values. Terraform vari
    variable "env" {
    description = "Deployment environment"
    type        = string
-   default     = "production"
+   default     = "dev"
    }
    ```
-2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `dev` variable block will default to its default value ("dev") unless you declare a different value.
+2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `env` variable block will default to its default value ("dev") unless you declare a different value.
    ```text
     tags = {
    -    Name = "<instance-name>"
