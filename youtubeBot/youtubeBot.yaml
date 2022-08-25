@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youtube-bot
+  namespace: <your-ns> # Your namespace here
+  labels:
+    app: youtube-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: youtube-bot
+  template:
+    metadata:
+      labels:
+        app: youtube-bot
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: youtube-bot
+          image: <docker-image-uri>  # r.g. 964849360084.dkr.ecr.us-east-1.amazonaws.com/youtube-app:0.0.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: youtube-bot-service
+spec:
+  selector:
+    app: youtube-bot
+  ports:
+    - port: 8080
+      targetPort: 3000

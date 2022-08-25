@@ -32,6 +32,17 @@ app.get('/status', (req, res) => {
 	res.sendStatus(200);
 });
 
+let healthCount = 0;
+
+app.get('/healthz', (req, res) => {
+    healthCount = healthCount + 1;
+    if (healthCount > 10) {
+        res.sendStatus(500);
+    } else {
+        res.sendStatus(200);
+    }
+});
+
 
 app.get('/load-test', (req, res) => {
 	var x = 6;

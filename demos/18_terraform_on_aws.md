@@ -226,7 +226,7 @@ data "aws_availability_zones" "available_azs" {
 
 The `aws_instance` configuration also uses a hard-coded AMI ID, which is only valid for the specific region. Use an `aws_ami` data source to load the correct AMI ID for the current region.
 
-4. ddd
+4. Add the following data source:
 ```text
 data "aws_ami" "amazon_linux_ami" {
   most_recent = true
@@ -413,7 +413,7 @@ Always backup your state!
 
 1. To configure a backend, add a nested `backend` block within the top-level `terraform` block. The following example configures the `s3_backend` backend:
    ```text
-   backend "s3_backend" {
+   backend "s3" {
     bucket = "<bucket-name>"
     key    = "tfstate.json"
     region = "<bucket-region>"
@@ -438,9 +438,4 @@ Just like with `apply`, Terraform determines the order to destroy your resources
 so it destroyed the instance. In more complicated cases with multiple resources, Terraform will destroy them in a suitable order to respect dependencies.
 
 You can destroy specific resource by `terraform destroy -target RESOURCE_TYPE.NAME`.
-
-
-[comment]: <> (# Multi-regional CloudWatch Alarm)
-
-[comment]: <> (## build your own module)
 
