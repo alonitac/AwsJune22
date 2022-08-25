@@ -4,13 +4,22 @@
 
 [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/) is an easy-to-install application for your Mac or Windows environment that enables you to build and share containerized applications and microservices.
 
+**If you installed Docker locally on Windows 10**, make sure the Hyper-V and Containers features are installed and enabled:
+1. Right-click the **Windows Start** button and choose **Apps and Features**.
+2. Click the **Programs and Features** link (a small link on the right).
+3. Click **Turn Windows features on or off**.
+4. Check the **Hyper-V** and **Containers** checkboxes and click **OK**.
+
+![](../.img/dockerwin10.png)
+
+
 ## Pull and run images
 
 In this tutorial you will run Nginx server in a Docker container and familiarize yourself with the basic commands set of Docker.
 
-1. Pull the [mcr.microsoft.com/windows/servercore/iis:latest](https://hub.docker.com/_/microsoft-windows-servercore-iis) image by:
+1. Pull the [nginx:latest](https://hub.docker.com/_/nginx/) image by:
 ```shell
-docker pull mcr.microsoft.com/windows/servercore/iis
+docker pull nginx:latest
 ```
 
 Use `docker images` to see all your containers.
@@ -21,7 +30,7 @@ To download a particular image, or set of images (i.e., a repository), use `dock
 
 2. Run it by
 ```shell
-docker run -p 8080:80 --name iis-1 mcr.microsoft.com/windows/servercore/iis:latest
+docker run -p 8080:80 --name nginx-1 nginx:latest
 ```
 
 The `docker run` launches a new container.

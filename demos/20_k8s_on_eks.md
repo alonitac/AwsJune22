@@ -1,8 +1,8 @@
 # Elastic Kubernetes Service
 
-## Install Minukube
+[comment]: <> (## Install Minukube)
 
-https://minikube.sigs.k8s.io/docs/start/
+[comment]: <> (https://minikube.sigs.k8s.io/docs/start/)
 
 ## Create EKS cluster (already done for you)
 
@@ -67,12 +67,20 @@ https://minikube.sigs.k8s.io/docs/start/
 2. Put the `kubectl.exe` binary in a directory accessible in your PATH environment variable.
 3. Run the following command to get credentials so you can communicate with the k8s cluster locally: 
 ```shell
-aws eks --region us-east-1 --profile <aws-course-profile> update-kubeconfig --name k8s-cluster
+aws eks --region us-east-1 --profile <aws-course-profile> update-kubeconfig --name eks-k8s-cluster
 ```
 4. Since we are working on a shared K8S cluster, create your own namespace to which you will deploy your resources:
 ```shell
 kubectl create namespace  <your-ns>
 ```
+
+## Start K8S dashboard
+
+1. Get the admin service account token by:
+`kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')`
+2. Start the `kubectl proxy`
+3. To access the dashboard endpoint, open the following link with a web browser:
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login
 
 ## Deploy the youtubeBot image 
 
