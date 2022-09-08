@@ -1,0 +1,15 @@
+architecture: replication
+replication:
+  applicationName: "postgres"
+  numSynchronousReplicas: 1
+primary:
+  persistence:
+    size: "5Gi"
+readReplicas:
+  replicaCount: 2
+
+
+
+
+
+

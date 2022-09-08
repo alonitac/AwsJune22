@@ -1,0 +1,15 @@
+fileConfigs:
+  04_outputs.conf: |-
+    <label @OUTPUT>
+      <match **>
+        @type cloudwatch_logs
+        log_group_name k8s-lg
+        log_stream_name eks-cluster-logs
+        auto_create_stream true
+        region us-east-1
+      </match>
+    </label>
+
+# for more information https://github.com/fluent-plugins-nursery/fluent-plugin-cloudwatch-logs
+plugins:
+ - fluent-plugin-cloudwatch-logs
