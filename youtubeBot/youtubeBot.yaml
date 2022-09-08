@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: youtube-bot
-  namespace: alonit # Your namespace here
+  namespace: <your-ns> # Your namespace here
   labels:
     app: youtube-bot
 spec:
@@ -19,12 +19,19 @@ spec:
       containers:
         - name: youtube-bot
           image: 964849360084.dkr.ecr.us-east-1.amazonaws.com/youtube-bot-app:0.0.1  # r.g. 964849360084.dkr.ecr.us-east-1.amazonaws.com/youtube-app:0.0.1
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            failureThreshold: 3
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: youtube-bot-service
-  namespace: alonit
+  namespace: <your-ns>
 spec:
   selector:
     app: youtube-bot
